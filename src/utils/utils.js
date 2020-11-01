@@ -13,10 +13,11 @@ const titleForShow = (run) => {
   if (run.name) {
     name = run.name;
   }
-  return `${name} ${date} ${distance} KM`;
+  return `${name} ${date} ${distance} KM ${!run.summary_polyline? "(no map data for this run)": ""}` ;
 };
 
 const formatPace = (d) => {
+  if (Number.isNaN(d)) return '0';
   const pace = (1000.0 / 60.0) * (1.0 / d);
   const minutes = Math.floor(pace);
   const seconds = Math.floor((pace - minutes) * 60.0);
@@ -37,7 +38,7 @@ const locationForRun = (run) => {
   if (location) {
     // Only for Chinese now
     const cityMatch = location.match(/[\u4e00-\u9fa5]*市/);
-    const provinceMatch = location.match(/[\u4e00-\u9fa5]*省/);
+    const provinceMatch = location.match(/[\u4e00-\u9fa5]*(省|自治区)/);
     if (cityMatch) {
       [city] = cityMatch;
     }
@@ -45,7 +46,11 @@ const locationForRun = (run) => {
       [province] = provinceMatch;
     }
     const l = location.split(',');
-    const countryMatch = l[l.length - 1].match(/[\u4e00-\u9fa5].*[\u4e00-\u9fa5]/);
+    // or to handle keep location format
+    let countryMatch = l[l.length - 1].match(/[\u4e00-\u9fa5].*[\u4e00-\u9fa5]/);
+    if (!countryMatch && l.length >= 3) {
+      countryMatch = l[2].match(/[\u4e00-\u9fa5].*[\u4e00-\u9fa5]/);
+    }
     if (countryMatch) {
       [country] = countryMatch;
     }
@@ -57,7 +62,7 @@ const locationForRun = (run) => {
   return { country, province, city };
 };
 
-const intComma = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const intComma = (x = '') => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const pathForRun = (run) => {
   try {
@@ -119,8 +124,17 @@ const titleForRun = (run) => {
 const applyToArray = (func, array) => func.apply(Math, array);
 const getBoundsForGeoData = (geoData, totalLength) => {
   const { features } = geoData;
-  const points = features[0].geometry.coordinates;
-
+  let points;
+  // find first have data
+  for (let f of features) {
+    if (f.geometry.coordinates.length) {
+     points = f.geometry.coordinates;
+     break
+    }
+  }
+  if (!points) {
+    return {}
+  }
   // Calculate corner values of bounds
   const pointsLong = points.map((point) => point[0]);
   const pointsLat = points.map((point) => point[1]);

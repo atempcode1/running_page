@@ -47,9 +47,12 @@
     "tachyons-sass": "^4.9.5",
     "webpack": "^4.43.0"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "scripts": {
+    "data:clean": "rm scripts/data.db GPX_OUT/* activities/* src/static/activities.js",
+    "data:download:garmin": "python3 scripts/garmin_sync.py",
+    "data:analysis": "python3 scripts/gen_svg.py --from-db --type github --output assets/github.svg",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
@@ -63,6 +66,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yihong0618/blog"
+    "url": "https://github.com/yihong0618/running_page"
   }
 }
