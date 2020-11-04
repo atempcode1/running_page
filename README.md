@@ -14,6 +14,7 @@
 | [guanlan](https://github.com/guanlan) | https://grun.vercel.app | Strava |
 | [tuzimoe](https://github.com/tuzimoe) | https://run.tuzi.moe | Nike |
 | [ben_29](https://github.com/ben-29) | https://running.ben29.xyz | Strava |
+| [kcllf](https://github.com/kcllf) | https://running-tau.vercel.app | Garmin-cn |
 
 ## 特性
 
@@ -254,10 +255,15 @@ https://github.com/flopp/GpxTrackPoster
 
 <details>
 <summary>使用 vercel 部署</summary>
+  
 1. vercel 连接你的 GitHub repo
+
 ![image](https://user-images.githubusercontent.com/15976103/94452465-2599b880-01e2-11eb-9538-582f0f46c421.png)
+
 2. import repo
+
 ![image](https://user-images.githubusercontent.com/15976103/94452556-3f3b0000-01e2-11eb-97a2-3789c2d60766.png)
+
 2. 等待部署完毕
 3. 访问
 </details>
