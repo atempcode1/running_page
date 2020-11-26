@@ -2126,6 +2126,34 @@ const activities = [
     "average_heartrate": null,
     "average_speed": 2.95,
     "streak": 1
+  },
+  {
+    "run_id": 4377837533,
+    "name": "Morning Run",
+    "distance": 5007.9,
+    "moving_time": "0:28:29",
+    "type": "Run",
+    "start_date": "2020-11-23 00:09:00+00:00",
+    "start_date_local": "2020-11-23 08:09:00",
+    "location_country": "China",
+    "summary_polyline": null,
+    "average_heartrate": null,
+    "average_speed": 2.93,
+    "streak": 1
+  },
+  {
+    "run_id": 4387001085,
+    "name": "Morning Run",
+    "distance": 5009.8,
+    "moving_time": "0:28:19",
+    "type": "Run",
+    "start_date": "2020-11-25 00:05:42+00:00",
+    "start_date_local": "2020-11-25 08:05:42",
+    "location_country": "China",
+    "summary_polyline": null,
+    "average_heartrate": null,
+    "average_speed": 2.949,
+    "streak": 1
   }
 ];
 
