@@ -18,13 +18,20 @@
 | ------- | ------- | ------- |
 | [shaonianche](https://github.com/shaonianche) | https://run.duangfei.org | Nike |
 | [yihong0618](https://github.com/yihong0618) | https://yihong.run/running | Nike |
-| [superleeyom](https://github.com/superleeyom) | https://running.leeyom.top | Keep |
+| [superleeyom](https://github.com/superleeyom) | https://running.leeyom.top | Nike |
 | [geekplux](https://github.com/geekplux) | https://activities.geekplux.com | Nike |
 | [guanlan](https://github.com/guanlan) | https://grun.vercel.app | Strava |
 | [tuzimoe](https://github.com/tuzimoe) | https://run.tuzi.moe | Nike |
 | [ben_29](https://github.com/ben-29) | https://running.ben29.xyz | Strava |
 | [kcllf](https://github.com/kcllf) | https://running-tau.vercel.app | Garmin-cn |
 | [mq](https://github.com/MQ-0707) | https://running-iota.vercel.app | Keep |
+| [zhaohongxuan](https://github.com/zhaohongxuan) | https://running-page-psi.vercel.app/ | Keep |
+| [yvetterowe](https://github.com/yvetterowe) | https://run.haoluo.io | Strava |
+| [love-exercise](https://github.com/KaiOrange) | https://run.kai666666.top/ | Keep |
+
+## How it works
+
+![image](https://user-images.githubusercontent.com/15976103/100430000-28753480-30d1-11eb-8b4e-258a67038d74.png)
 
 ## Features
 
@@ -42,10 +49,11 @@
 
 - **[Garmin](#garmin)**
 - **[Garmin-CN](#garmin-cnchina)**
-- **[Runtastic(Adidas Run)](#runtasticadidas-run))**
+- **[Runtastic(Adidas Run)](#runtasticadidas-run)**
 - **[Nike Run Club](#nike-run-club)**
 - **[Strava](#strava)**
 - **[GPX](#GPX)**
+- **[Nike_to_Strava(Using NRC Run, Strava backup data)](#Nike_to_Strava)**
 
 ## Download
 Clone or fork the repo.
@@ -75,7 +83,7 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoieWlob25nMDYxOCIsImEiOiJja2J3M28xbG4wYzl0MzJxZm0
 
 
 
-## Download your running data
+## Download your running data and do not forget to [generate svg in `total` page](#Total-Data-Analysis).
 
 
 ### GPX
@@ -125,7 +133,7 @@ python3(python) scripts/garmin_sync.py example@gmail.com example --is-cn
 
 <details>
 <summary>Get your <code>Runtastic</code> data</summary>
-  
+
 <br>
 
 ```python
@@ -234,6 +242,24 @@ https://github.com/strava/go.strava
 
 </details>
 
+### Nike_to_Strava
+
+<details>
+<summary>Get your <code>Nike Run Club</code> data and upload to strava</summary>
+
+<br>
+
+1. follow the nike and strava steps
+2. Execute in the root directory:
+```python
+python3(python) scripts/nike_to_strava_sync.py ${nike_refresh_token} ${client_id} ${client_secret} ${strava_refresch_token} 
+```
+example：
+```python
+python3(python) scripts/nike_to_strava_sync.py eyJhbGciThiMTItNGIw******  xxx xxx xxx
+```
+</details>
+
 ### Total Data Analysis
 
 <details>
@@ -317,7 +343,7 @@ My secret is as follows
 
 - [ ] Complete this document.
 - [x] Support Garmin, Garmin China
-- [ ] support for nike+strava, runtastic+strava
+- [x] support for nike+strava
 - [x] Support English
 - [ ] Refine the code
 - [x] add new features
