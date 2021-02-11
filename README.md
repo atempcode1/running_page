@@ -25,25 +25,27 @@
 | [ben_29](https://github.com/ben-29) | https://running.ben29.xyz | Strava |
 | [kcllf](https://github.com/kcllf) | https://running-tau.vercel.app | Garmin-cn |
 | [mq](https://github.com/MQ-0707) | https://running-iota.vercel.app | Keep |
-| [zhaohongxuan](https://github.com/zhaohongxuan) | https://running-page-psi.vercel.app/ | Keep |
+| [zhaohongxuan](https://github.com/zhaohongxuan) | https://running-page-psi.vercel.app | Keep |
 | [yvetterowe](https://github.com/yvetterowe) | https://run.haoluo.io | Strava |
-| [love-exercise](https://github.com/KaiOrange) | https://run.kai666666.top/ | Keep |
+| [love-exercise](https://github.com/KaiOrange) | https://run.kai666666.top | Keep |
 | [zstone12](https://github.com/zstone12) | https://running-page.zstone12.vercel.app/ | Keep |
-| [Lax](https://github.com/Lax) | https://running-lax.vercel.app/ | Keep |
-| [lusuzi](https://github.com/lusuzi) | https://running.lusuzi.vercel.app/ | Nike |
+| [Lax](https://github.com/Lax) | https://lax.github.io/running/ | Keep |
+| [lusuzi](https://github.com/lusuzi) | https://running.lusuzi.vercel.app | Nike |
+| [wh1994](https://github.com/wh1994) | https://run4life.fun | Garmin |
+| [liuyihui](https://github.com/YiHui-Liu) | https://run.foolishfox.cn | Keep |
 
 ## How it works
 
-![image](https://user-images.githubusercontent.com/15976103/100430000-28753480-30d1-11eb-8b4e-258a67038d74.png)
+![image](https://user-images.githubusercontent.com/15976103/103496454-4294f600-4e79-11eb-9bd6-8eea7a07ddff.png)
 
 ## Features
 
 1. GitHub Actions manages automatic synchronization of runs and generation of new pages.
 2. Gatsby-generated static pages, fast
-3. Support for Vercel (recommended) automated deployment
+3. Support for Vercel (recommended) and GitHub Pages automated deployment
 4. React Hooks
 5. Mapbox for map display
-6. Nike and Runtastic (Adidas Run) 
+6. Supports most sports apps such as nike strava...
 
 > automatically backup gpx data for easy backup and uploading to other software.
 
@@ -84,10 +86,39 @@ Open your browser and visit http://localhost:8000/
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieWlob25nMDYxOCIsImEiOiJja2J3M28xbG4wYzl0MzJxZm0ya2Fua2p2In0.PNKfkeQwYuyGOTT_x9BJ4Q';
 ```
 
+## Custom your page
 
+### avatar
+
+Modify `export const AVATAR =
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtc69JxHNcmN1ETpMUX4dozAgAN6iPjWalQ&usqp=CAU';` Replace it with the link to the image you want.
+
+### NAVS
+
+Change `NAVS` in `src/utils/const.js` to the link you want, just like:
+
+```javascript
+export const NAVS = [
+  { text: 'Blog', link: 'https://yihong.run/running' },
+  { text: 'About', link: 'https://github.com/yihong0618/running_page/blob/master/README-CN.md' },
+];
+```
+
+You can also add multiple links, just like the above.
+
+### Title and site link
+
+Find `gatsby-config.js` in the repository directory, find the following content, and change it to what you want.
+
+```javascript
+siteMetadata: {
+  title: 'Running page',
+  siteUrl: 'https://yihong.run',
+  description: 'Personal site and blog',
+},
+```
 
 ## Download your running data and do not forget to [generate svg in `total` page](#Total-Data-Analysis).
-
 
 ### GPX
 
@@ -309,6 +340,18 @@ https://github.com/flopp/GpxTrackPoster
 2. Awaiting completion of deployment
 3. Visits
 
+</details>
+
+<details>
+<summary> Deploy to GitHub Pages </summary>
+
+1. If you are using a custom domain for GitHub Pages, open [.github/workflows/gh-pages.yml](.github/workflows/gh-pages.yml), change `fqdn` value to the domain name of your site.
+
+2. (*Skip this step if you're **NOT** using a custom domain*) Modify `gatsby-config.js`, change `pathPrefix` value to the root path. If the repository name is `running_page`, the value will be `/running_page`.
+
+3. Go to repository's `Actions -> Workflows -> All Workflows`, choose `Publish GitHub Pages` from the left panel, click `Run workflow`. Make sure the workflow runs without errors, and `gh-pages` branch is created.
+
+4. Go to repository's `Settings -> GitHub Pages -> Source`, choose `Branch: gh-pages`, click `Save`.
 </details>
 
 ## GitHub Actions 
