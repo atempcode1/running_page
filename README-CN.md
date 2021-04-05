@@ -1,7 +1,7 @@
 ![running_page](https://socialify.git.ci/yihong0618/running_page/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2Fshaonianche%2Fgallery%2Fmaster%2Frunning_page%2Frunning_page_logo_150*150.jpg&owner=1&pulls=1&stargazers=1&theme=Light)
 
 # [打造个人跑步主页](https://yihong.run/running) 
-简体中文 | [English](README-EN.md)
+[English](README-EN.md) | 简体中文
 
 <details>
 <summary>GIF 展示</summary>
@@ -61,7 +61,6 @@
 ## 支持
 - **[Strava](#strava)**
 - **[Nike Run Club](#nike-run-club)**
-- **[Runtastic(Adidas Run)](#runtasticadidas-run)**
 - **[Garmin](#Garmin)**
 - **[Garmin-cn](#garmin-cn-大陆用户请用这个)**
 - **[Keep](#Keep)**
@@ -124,7 +123,7 @@ siteMetadata: {
 },
 ```
 
-## 下载您的 Runtastic(Adidas Run)/Nike Run Club/Strava/Garmin/Garmin-cn/Keep 数据, [别忘了在 `total` 页面生成可视化 SVG](#Total-Data-Analysis).
+## 下载您的 Nike Run Club/Strava/Garmin/Garmin-cn/Keep 数据, [别忘了在 `total` 页面生成可视化 SVG](#Total-Data-Analysis).
 
 ### GPX
 
@@ -281,20 +280,6 @@ python3(python) scripts/garmin_sync.py example@gmail.com example --is-cn
 ```
 </details>
 
-### Runtastic(Adidas Run)
-
-<details>
-<summary>获取您的 Runtastic(Adidas Run) 数据</summary>
-
-```python
-python3(python) scripts/runtastic_sync.py ${your email} ${your password}
-```
-示例：
-```python
-python3(python) scripts/runtastic_sync.py example@gmail.com example
-```
-</details>
-
 ### Nike Run Club
 
 <details>
@@ -425,7 +410,7 @@ https://github.com/flopp/GpxTrackPoster
 ## server(recommend vercel)
 
 <details>
-<summary>使用 vercel 部署</summary>
+<summary>使用 Vercel 部署</summary>
 
 1. vercel 连接你的 GitHub repo
 
@@ -437,6 +422,24 @@ https://github.com/flopp/GpxTrackPoster
 
 2. 等待部署完毕
 3. 访问
+</details>
+
+<details>
+<summary> 使用 Cloudflare 部署 </summary>
+<br>
+
+1. 在 `Pages` 中点击 `Create a project` 以连接到你的仓库
+
+2. 点击 `Begin setup` 后，修改项目的 `Build settings`。
+
+3. 在 `Framework preset` 中选择 `Gatsby` 框架。
+
+4. 向下滚动，点击 `Environment variables` 修改变量如下：
+
+   > Variable name = `PYTHON_VERSION`, Value = `3.7`
+
+5. 点击 `Save and Deploy`，完成部署。
+
 </details>
 
 <details>
@@ -498,3 +501,6 @@ Actions [源码](https://github.com/yihong0618/running_page/blob/master/.github/
 - @[shaonianche](https://github.com/shaonianche) icon 设计及文档
 - @[geekplux](https://github.com/geekplux) 帮助及鼓励, 重构了前端代码，学到了不少~
 - @[ben-29](https://github.com/ben-29) 搞定了咕咚，和我一起搞定了悦跑圈，太厉害了。
+
+# 赞赏
+谢谢就够了
